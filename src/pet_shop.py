@@ -62,6 +62,13 @@ def sell_pet_to_customer(shop_name, pet, customer):
     remove_customer_cash(customer,pet['price'])
     add_pet_to_customer(customer,pet)
     add_or_remove_cash(shop_name,pet['price'])
-    increase_pets_sold(shop_name,len(pet))
+   
+   # for increase pets solf function the input is required to be a int
+    def num_of_pet_sold(pet):
+        pet_sold =[]
+        pet_sold.append(pet)
+        return len(pet_sold)
+
+    increase_pets_sold(shop_name,num_of_pet_sold(pet))
     
 
