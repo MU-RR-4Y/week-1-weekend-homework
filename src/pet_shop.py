@@ -30,6 +30,7 @@ def find_pet_by_name(shop_name, name):
         if pet['name'] == name:
             return pet
 
+
 def remove_pet_by_name(shop_name, name):
     for pet in shop_name['pets']:
         if pet['name'] == name:
@@ -58,17 +59,24 @@ def customer_can_afford_pet(customer,pet):
 
 def sell_pet_to_customer(shop_name, pet, customer):
     
-    remove_pet_by_name(shop_name,pet['name'])
-    remove_customer_cash(customer,pet['price'])
-    add_pet_to_customer(customer,pet)
-    add_or_remove_cash(shop_name,pet['price'])
-   
-   # for increase pets solf function the input is required to be a int
+    # for increase pets sold function the input is required to be a int
     def num_of_pet_sold(pet):
         pet_sold =[]
         pet_sold.append(pet)
         return len(pet_sold)
+    
+    if pet != None:
+        if customer['cash'] >= pet['price']:
 
-    increase_pets_sold(shop_name,num_of_pet_sold(pet))
+            remove_pet_by_name(shop_name,pet['name'])
+            remove_customer_cash(customer,pet['price'])
+            add_pet_to_customer(customer,pet)
+            add_or_remove_cash(shop_name,pet['price'])
+            increase_pets_sold(shop_name,num_of_pet_sold(pet))
+        else:
+            pass
+
+    else:
+        pass
     
 
